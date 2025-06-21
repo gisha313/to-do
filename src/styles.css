@@ -1,5 +1,113 @@
-body {
+:root {
+  font-size: 18px;
+
+  --nav-bg-color: #1a1a1a;
+  --main-bg-color: #2a2a2a;
+
+  --nav-hover-color: #2f2f2f;
+
+  --primary-text: #f0f0f0;
+  --secondary-text: #eee;
+
+  --accent-1: #004d61;
+  --accent-1-light: #006b86;
+  --accent-2: #822659;
+  --accent-2-light: #ab3375;
+  --accent-3: #3e5641;
+  --accent-3-light: #648b69;
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  color: var(--primary-text);
+}
+
+button {
+  font: inherit;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+nav {
+  background: var(--nav-bg-color);
+  padding: 12px 12px 12px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+nav a {
+  color: var(--primary-text);
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+
+  padding: 6px;
+
+  transition: all 75ms;
+}
+
+nav a:hover,
+nav a:active {
+  background: var(--nav-hover-color);
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav li {
+  list-style: none;
+  margin-top: 6px;
+}
+
+nav h2 {
+  font-size: 1.9rem;
+  margin: 12px 0px;
+
+  border-bottom: 1px solid var(--accent-3);
+}
+
+#add-task-btn {
+  background: var(--accent-3);
+  padding: 6px;
+  width: 100%;
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+
+  transition: all 75ms;
+}
+
+#add-task-btn:hover {
+  background: var(--accent-3-light);
+}
+
+#add-task-btn span {
+  width: 28px;
+  height: 28px;
+
+  display: inline-block;
+  margin-right: 8px;
+  background: url(./svg/plus.svg) no-repeat;
+  color: var(--primary-text);
+}
+
+.nav-item {
+  font-size: 1.4rem;
+}
+
+main {
+  background: var(--main-bg-color);
 }
