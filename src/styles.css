@@ -54,7 +54,7 @@ nav a {
 
   padding: 6px;
 
-  transition: all 75ms;
+  transition: background 75ms;
 }
 
 nav a:hover,
@@ -87,7 +87,7 @@ nav h2 {
   display: flex;
   align-items: center;
 
-  transition: all 75ms;
+  transition: background 75ms;
 }
 
 #add-task-btn:hover {
