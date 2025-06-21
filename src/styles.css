@@ -54,12 +54,13 @@ nav a {
 
   padding: 6px;
 
-  transition: background 75ms;
+  transition: all 75ms;
 }
 
 nav a:hover,
 nav a:active {
   background: var(--nav-hover-color);
+  padding-left: 10px;
 }
 
 nav ul {
