@@ -54,7 +54,7 @@ nav a {
 
   padding: 6px;
 
-  transition: all 75ms;
+  transition: ease-in 75ms;
 }
 
 nav a:hover,
