@@ -5,6 +5,8 @@
   --main-bg-color: #2a2a2a;
 
   --task-bg-color: #303030;
+  --task-input-bg-color: #4c4c4c;
+  --task-input-bg-color-selected: #7b7b7b;
 
   --nav-hover-color: #2f2f2f;
 
@@ -33,7 +35,7 @@ body {
   height: 100%;
 
   display: grid;
-  grid-template-columns: minmax(200px, 300px) auto;
+  grid-template-columns: 300px auto;
   grid-template-rows: fit-content;
   color: var(--primary-text);
 }
@@ -57,6 +59,7 @@ nav {
   height: 100vh;
 
   overflow-y: auto;
+  z-index: 10;
 }
 
 nav a {
@@ -292,7 +295,7 @@ main {
   left: 3px;
 }
 
-:checked + label {
+.task-content :checked + label {
   text-decoration: line-through;
 }
 
@@ -303,4 +306,177 @@ main {
 
   font-size: 1.3rem;
   color: var(--primary-text);
+}
+
+.add-task-form-wrapper {
+  width: calc(100% - 300px);
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 300px;
+  z-index: 5;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.add-task-form-wrapper.hidden {
+  display: none;
+}
+
+.add-task-form-wrapper .overlay {
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 300px;
+
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1.5px);
+
+  z-index: -3;
+}
+
+.add-task-form {
+  width: 100%;
+  max-width: 605px;
+
+  background: var(--task-bg-color);
+  padding: 24px 48px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-task-form h2 {
+  font-size: 2rem;
+  color: var(--primary-text);
+  margin-bottom: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 1.3rem;
+  color: var(--primary-text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font: inherit;
+  padding: 8px;
+  font-size: 1.3rem;
+  color: var(--primary-text);
+  background: var(--task-input-bg-color);
+
+  outline: none;
+  border: none;
+}
+
+.form-multiple-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.form-multiple-group .form-group {
+  flex: 1;
+}
+
+.add-task-form fieldset {
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-task-form fieldset legend {
+  font-size: 1.4rem;
+  color: var(--primary-text);
+  margin-bottom: 6px;
+}
+
+.priority-option-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.priority-option-wrapper input[type="radio"] {
+  display: none;
+}
+
+.priority-option-wrapper label {
+  height: 100%;
+  width: 100%;
+  padding: 8px;
+}
+
+.priority-option-wrapper .radio-group {
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--task-input-bg-color);
+}
+
+.priority-option-wrapper .radio-group:nth-child(1) {
+  border-left: 6px solid var(--accent-3-light);
+}
+
+.priority-option-wrapper .radio-group:nth-child(2) {
+  border-left: 6px solid var(--accent-2);
+}
+
+.priority-option-wrapper .radio-group:nth-child(3) {
+  border-left: 6px solid var(--accent-1);
+}
+
+.priority-option-wrapper input[type="radio"]:checked + label {
+  background: var(--task-input-bg-color-selected);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.form-actions button {
+  width: 120px;
+  height: 42px;
+  color: var(--primary-text);
+  font-size: 1.3rem;
+
+  transition: ease-in 75ms;
+}
+
+.form-actions button:first-child {
+  background: var(--accent-3);
+}
+
+.form-actions button:first-child:hover {
+  background: var(--accent-3-light);
+}
+
+.form-actions button:last-child {
+  background: var(--task-input-bg-color);
+}
+
+.form-actions button:last-child:hover {
+  background: var(--task-input-bg-color-selected);
 }
