@@ -7,6 +7,7 @@
   --task-bg-color: #303030;
   --task-input-bg-color: #4c4c4c;
   --task-input-bg-color-selected: #7b7b7b;
+  --task-edit-bg-color: #3c3c3c;
 
   --nav-hover-color: #2f2f2f;
 
@@ -199,6 +200,7 @@ main {
   width: 28px;
   height: 28px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .task.done .task-status {
@@ -212,6 +214,10 @@ main {
 .task-header h3 {
   font-size: 2rem;
   color: var(--primary-text);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
 }
 
 .task.done .task-header h3 {
@@ -250,7 +256,6 @@ main {
 }
 
 .expand-btn-container {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -273,7 +278,7 @@ main {
 }
 
 .task-content {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--secondary-text);
 }
 
@@ -492,5 +497,70 @@ main {
 }
 
 .form-actions button:last-child:hover {
+  background: var(--task-input-bg-color-selected);
+}
+
+.hidden {
+  display: none;
+}
+
+.task input[type="text"],
+.task input[type="date"],
+.task textarea {
+  all: unset;
+  font: inherit;
+  color: var(--primary-text);
+
+  background: var(--task-edit-bg-color);
+}
+
+#edit-task-title {
+  width: 100%;
+
+  padding: 0 8px;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#edit-task-description {
+  font-size: 1.4rem;
+  color: var(--primary-text);
+  width: calc(100% - 16px);
+
+  resize: none;
+  overflow: hidden;
+  height: calc(auto);
+  padding: 8px;
+}
+
+.edit-save-btn,
+.edit-cancel-btn {
+  all: unset;
+  width: 100px;
+  height: 42px;
+  color: var(--primary-text);
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+
+  transition: background 75ms ease-in;
+}
+
+.edit-save-btn {
+  background: var(--accent-3);
+}
+
+.edit-save-btn:hover {
+  background: var(--accent-3-light);
+}
+
+.edit-cancel-btn {
+  background: var(--task-input-bg-color);
+}
+
+.edit-cancel-btn:hover {
   background: var(--task-input-bg-color-selected);
 }
