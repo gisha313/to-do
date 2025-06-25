@@ -1,4 +1,4 @@
-import { changeTaskStatus } from "./event-handler";
+import { changeTaskStatus, toggleTaskContent } from "./event-handler";
 
 function createTaskElement(task) {
   const taskDiv = document.createElement("article");
@@ -11,9 +11,7 @@ function createTaskElement(task) {
 
   const taskStatusButton = document.createElement("button");
   taskStatusButton.classList.add("task-status");
-  taskStatusButton.addEventListener("click", () => {
-    console.log("Task status button clicked");
-  });
+  taskStatusButton.addEventListener("click", changeTaskStatus);
 
   header.appendChild(taskStatusButton);
 
@@ -30,9 +28,7 @@ function createTaskElement(task) {
     const expandTaskBtn = document.createElement("button");
     expandTaskBtn.dataset.expanded = "false";
     expandTaskBtn.classList.add("expand-task-btn");
-    expandTaskBtn.addEventListener("click", () => {
-      console.log("Expand task clicked");
-    });
+    expandTaskBtn.addEventListener("click", toggleTaskContent);
     expandBtnContainer.appendChild(expandTaskBtn);
     header.appendChild(expandBtnContainer);
   }
@@ -44,6 +40,7 @@ function createTaskElement(task) {
 
     const taskContent = document.createElement("div");
     taskContent.classList.add("task-content");
+    taskContent.classList.add("hidden");
     const taskDescription = document.createElement("p");
     taskDescription.textContent = task.description;
     taskContent.appendChild(taskDescription);
