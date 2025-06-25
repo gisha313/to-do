@@ -1,4 +1,4 @@
-import { getTaskList } from "./storage";
+import { getTaskById } from "./storage";
 
 function expandTaskContent(taskDiv) {
   const taskContent = taskDiv.querySelector(".task-content");
@@ -34,8 +34,7 @@ export function changeTaskStatus(event) {
   const taskStatusButton = event.target;
   const taskDiv = taskStatusButton.parentElement.parentElement;
   const taskId = taskDiv.dataset.id;
-  const taskList = getTaskList();
-  const task = taskList.getTask(taskId);
+  const task = getTaskById(taskId);
 
   if (task.isCompleted) taskDiv.classList.remove("done");
   else taskDiv.classList.add("done");
