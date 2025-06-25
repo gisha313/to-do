@@ -20,4 +20,8 @@ export default class TaskList {
   editTask(taskId, newTaskDetails) {
     this.tasks.find((task) => task.id === taskId).updateDetails(newTaskDetails);
   }
+
+  getTask(taskId) {
+    return this.tasks.find((task) => task.id === taskId);
+  }
 }
