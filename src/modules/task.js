@@ -13,6 +13,10 @@ export default class Task {
     return this._id;
   }
 
+  get isCompleted() {
+    return this.completed;
+  }
+
   toggleCompletion() {
     this.completed = !this.completed;
   }
