@@ -72,28 +72,33 @@
     </nav>
     <main>
         <div class="tasks-wrapper">
-            <!-- <article class="task" data-priority="high">
+            <article class="task" data-priority="high">
                 <div class="task-header">
-                    <button class="task-status">
+                    <button class="task-status disabled">
                     </button>
-                    <h3>Task title</h3>
-                    <div class="expand-btn-container">
-                        <button class="expand-task-btn" data-expanded="true"></button>
-                    </div>
+                    <h3>
+                        <input type="text" name="edit-task-title" id="edit-task-title" value="Task title 1"
+                            maxlength="30" required spellcheck="false" autocomplete="off">
+                    </h3>
                 </div>
                 <div class="task-content">
-                    <p class="task-description">This is a description of the task. It can be long and detailed.</p>
+                    <p class="task-description">
+                        <textarea name="edit-task-description" id="edit-task-description"
+                            oninput="dynamicHeight(this)">This is a description of the task. It can be long and detailed.</textarea>
+                    </p>
                 </div>
                 <div class="task-footer">
-                    <span class="task-date">Due: 2025-10-01</span>
-                    <div class="task-actions">
-                        <button class="edit-task-btn">
-                        </button>
-                        <button class="delete-task-btn"></button>
+                    <span class="task-date">
+                        Due:
+                        <input type="date" name="edit-task-date" id="edit-task-date" value="2025-10-01" required>
+                    </span>
+                    <div class="edit-task-actions">
+                        <button class="edit-save-btn" type="button">Save</button>
+                        <button class="edit-cancel-btn" type="button">Cancel</button>
                     </div>
                 </div>
             </article>
-            <article class="task" data-priority="low">
+            <!-- <article class="task" data-priority="low">
                 <div class="task-header">
                     <button class="task-status">
                     </button>
@@ -126,8 +131,8 @@
                         <button class="delete-task-btn"></button>
                     </div>
                 </div>
-            </article>
-            <article class="task" data-priority="medium">
+            </article> -->
+            <!-- <article class="task" data-priority="medium">
                 <div class="task-header">
                     <button class="task-status">
                     </button>
@@ -200,6 +205,12 @@
                 <button type="submit" id="save-task-btn">Save</button>
                 <button type="button" id="cancel-task-btn">Cancel</button>
             </div>
+            <script>
+                function dynamicHeight(element) {
+                    element.style.height = '0';
+                    element.style.height = (element.scrollHeight) + 'px';
+                }
+            </script>
         </form>
     </div>
 </body>
