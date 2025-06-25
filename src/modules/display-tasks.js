@@ -1,4 +1,8 @@
-import { changeTaskStatus, toggleTaskContent } from "./event-handler";
+import {
+  changeTaskStatus,
+  toggleTaskContent,
+  removeTask,
+} from "./event-handler";
 
 function createTaskElement(task) {
   const taskDiv = document.createElement("article");
@@ -66,9 +70,7 @@ function createTaskElement(task) {
 
   const deleteTaskBtn = document.createElement("button");
   deleteTaskBtn.classList.add("delete-task-btn");
-  deleteTaskBtn.addEventListener("click", () => {
-    console.log("Delete task clicked");
-  });
+  deleteTaskBtn.addEventListener("click", removeTask);
   taskActions.appendChild(deleteTaskBtn);
 
   taskFooter.appendChild(taskActions);
