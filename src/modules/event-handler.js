@@ -1,4 +1,4 @@
-import { getTaskById } from "./storage";
+import { getTaskById, removeTaskById } from "./storage";
 
 function expandTaskContent(taskDiv) {
   const taskContent = taskDiv.querySelector(".task-content");
@@ -42,4 +42,13 @@ export function changeTaskStatus(event) {
   task.toggleCompletion();
 
   collapseTaskContent(taskDiv);
+}
+
+export function removeTask(event) {
+  const deleteTaskBtn = event.target;
+  const taskDiv = deleteTaskBtn.parentElement.parentElement.parentElement;
+  const taskId = taskDiv.dataset.id;
+
+  removeTaskById(taskId);
+  taskDiv.remove();
 }
