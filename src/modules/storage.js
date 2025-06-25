@@ -9,3 +9,7 @@ export function getTaskList() {
 export function getTaskById(taskId) {
   return taskList.getTask(taskId);
 }
+
+export function removeTaskById(taskId) {
+  taskList.removeTask(taskId);
+}
