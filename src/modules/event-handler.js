@@ -1,7 +1,7 @@
 import { getTaskById, removeTaskById } from "./storage";
-import { openEditTaskForm  } from "./edit-task";
+import { openEditTaskForm } from "./edit-task";
 
-function expandTaskContent(taskDiv) {
+export function expandTaskContent(taskDiv) {
   const taskContent = taskDiv.querySelector(".task-content");
   const expandBtn = taskDiv.querySelector(".expand-task-btn");
 
