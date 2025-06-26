@@ -1,7 +1,7 @@
 import "./styles.css";
 import TaskList from "./modules/task-list";
 import Task from "./modules/task";
-import displayTasks from "./modules/display-tasks";
+import {displayTasks} from "./modules/display-tasks";
 import { getTaskList } from "./modules/storage";
 
 const list = getTaskList();
