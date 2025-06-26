@@ -1,4 +1,5 @@
 import { getTaskById, removeTaskById } from "./storage";
+import { openEditTaskForm  } from "./edit-task";
 
 function expandTaskContent(taskDiv) {
   const taskContent = taskDiv.querySelector(".task-content");
@@ -51,4 +52,11 @@ export function removeTask(event) {
 
   removeTaskById(taskId);
   taskDiv.remove();
+}
+
+export function editTask(event) {
+  const editTaskBtn = event.target;
+  const taskDiv = editTaskBtn.parentElement.parentElement.parentElement;
+
+  openEditTaskForm(taskDiv);
 }
