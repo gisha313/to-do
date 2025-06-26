@@ -1,5 +1,6 @@
 import { getTaskById } from "./storage";
 import { createTaskElement } from "./display-tasks";
+import { expandTaskContent } from "./event-handler";
 
 function getDataFromTaskDiv(taskDiv) {
   const taskTitle = taskDiv.querySelector("h3").textContent;
@@ -100,6 +101,8 @@ function saveNewTaskData(event) {
   const wrapper = taskDiv.parentElement;
   wrapper.innerHTML = "";
   wrapper.appendChild(newTaskDiv);
+
+  if (newTaskDiv.querySelector(".task-content")) expandTaskContent(newTaskDiv);
 }
 
 export function openEditTaskForm(taskDiv) {
