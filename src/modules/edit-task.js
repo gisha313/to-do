@@ -20,7 +20,6 @@ function getDataFromTaskDiv(taskDiv) {
 
 function createEditForm(taskDiv) {
   const taskData = getDataFromTaskDiv(taskDiv);
-  console.table(taskData);
 
   const form = document.createElement("form");
   form.classList.add("edit-task-form");
@@ -69,12 +68,31 @@ function createEditForm(taskDiv) {
   const cancelBtn = document.createElement("button");
   cancelBtn.classList.add("edit-cancel-btn");
   cancelBtn.textContent = "Cancel";
+
+  cancelBtn.addEventListener("click", cancelEditForm.bind(cancelBtn, taskData));
+
   editTaskActions.appendChild(cancelBtn);
 
   taskFooter.appendChild(editTaskActions);
   form.appendChild(taskFooter);
 
   return form;
+}
+
+function replaceTaskDiv(taskDiv, newData) {
+  // Update the task with new details
+  const taskId = taskDiv.dataset.id;
+  const task = getTaskById(taskId);
+  task.updateDetails(newData);
+
+  // Create a new updated task div and replace the old with the new
+  const newTaskDiv = createTaskElement(task);
+  const wrapper = taskDiv.parentElement;
+  wrapper.innerHTML = "";
+  wrapper.appendChild(newTaskDiv);
+
+  // Expand text content on edit if the task has it
+  if (newTaskDiv.querySelector(".task-content")) expandTaskContent(newTaskDiv);
 }
 
 function saveNewTaskData(event) {
@@ -96,19 +114,15 @@ function saveNewTaskData(event) {
     dueDate: newDueDate,
   };
 
-  // Update the task with new details
-  const taskId = taskDiv.dataset.id;
-  const task = getTaskById(taskId);
-  task.updateDetails(newData);
+  replaceTaskDiv(taskDiv, newData);
+}
 
-  // Create a new updated task div and replace the old with the new
-  const newTaskDiv = createTaskElement(task);
-  const wrapper = taskDiv.parentElement;
-  wrapper.innerHTML = "";
-  wrapper.appendChild(newTaskDiv);
+function cancelEditForm(taskData, event) {
+  event.preventDefault();
+  const taskDiv =
+    event.target.parentElement.parentElement.parentElement.parentElement;
 
-  // Expand text content on edit if the task has it
-  if (newTaskDiv.querySelector(".task-content")) expandTaskContent(newTaskDiv);
+  replaceTaskDiv(taskDiv, taskData);
 }
 
 export function openEditTaskForm(taskDiv) {
