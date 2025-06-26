@@ -73,30 +73,32 @@
     <main>
         <div class="tasks-wrapper">
             <article class="task" data-priority="high">
-                <div class="task-header">
-                    <button class="task-status disabled">
-                    </button>
-                    <h3>
-                        <input type="text" name="edit-task-title" id="edit-task-title" value="Task title 1"
-                            maxlength="30" required spellcheck="false" autocomplete="off">
-                    </h3>
-                </div>
-                <div class="task-content">
-                    <p class="task-description">
-                        <textarea name="edit-task-description" id="edit-task-description"
-                            oninput="dynamicHeight(this)">This is a description of the task. It can be long and detailed.</textarea>
-                    </p>
-                </div>
-                <div class="task-footer">
-                    <span class="task-date">
-                        Due:
-                        <input type="date" name="edit-task-date" id="edit-task-date" value="2025-10-01" required>
-                    </span>
-                    <div class="edit-task-actions">
-                        <button class="edit-save-btn" type="button">Save</button>
-                        <button class="edit-cancel-btn" type="button">Cancel</button>
+                <form action="GET" id="edit-task-form">
+                    <div class="task-header">
+                        <button class="task-status" disabled>
+                        </button>
+                        <h3>
+                            <input type="text" name="edit-task-title" id="edit-task-title" value="Task title 1"
+                                maxlength="30" required spellcheck="false" autocomplete="off">
+                        </h3>
                     </div>
-                </div>
+                    <div class="task-content">
+                        <p class="task-description">
+                            <textarea name="edit-task-description" id="edit-task-description"
+                                oninput="dynamicHeight(this)">This is a description of the task. It can be long and detailed.</textarea>
+                        </p>
+                    </div>
+                    <div class="task-footer">
+                        <span class="task-date">
+                            Due:
+                            <input type="date" name="edit-task-date" id="edit-task-date" value="2025-10-01" required>
+                        </span>
+                        <div class="edit-task-actions">
+                            <button class="edit-save-btn" type="button">Save</button>
+                            <button class="edit-cancel-btn" type="button">Cancel</button>
+                        </div>
+                    </div>
+                </form>
             </article>
             <!-- <article class="task" data-priority="low">
                 <div class="task-header">
