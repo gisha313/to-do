@@ -2,9 +2,10 @@ import {
   changeTaskStatus,
   toggleTaskContent,
   removeTask,
+  editTask
 } from "./event-handler";
 
-function createTaskElement(task) {
+export function createTaskElement(task) {
   const taskDiv = document.createElement("article");
   taskDiv.classList.add("task");
   taskDiv.dataset.id = task.id;
@@ -63,9 +64,7 @@ function createTaskElement(task) {
   taskActions.classList.add("task-actions");
   const editTaskBtn = document.createElement("button");
   editTaskBtn.classList.add("edit-task-btn");
-  editTaskBtn.addEventListener("click", () => {
-    console.log("Edit task clicked");
-  });
+  editTaskBtn.addEventListener("click", editTask);
   taskActions.appendChild(editTaskBtn);
 
   const deleteTaskBtn = document.createElement("button");
@@ -79,12 +78,15 @@ function createTaskElement(task) {
   return taskDiv;
 }
 
-export default function displayTasks(tasks) {
+export function displayTasks(tasks) {
   const tasksWrapper = document.querySelector(".tasks-wrapper");
 
   tasksWrapper.innerHTML = "";
   tasks.forEach((task) => {
+    const taskElementWrapper = document.createElement("div");
+    taskElementWrapper.classList.add("task-element-wrapper")
     const taskElement = createTaskElement(task);
-    tasksWrapper.appendChild(taskElement);
+    taskElementWrapper.appendChild(taskElement)
+    tasksWrapper.appendChild(taskElementWrapper);
   });
 }
