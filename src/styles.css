@@ -164,6 +164,10 @@ main {
   align-items: center;
 }
 
+.task-element-wrapper {
+  width: 100%;
+}
+
 .task {
   width: 100%;
   max-width: 600px;
