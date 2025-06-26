@@ -43,7 +43,7 @@ function createEditForm(taskDiv) {
   taskContent.classList.add("task-content");
 
   const taskDescription = document.createElement("p");
-  taskDescription.innerHTML = `<textarea name="edit-task-description" id="edit-task-description" oninput="dynamicHeight(this)">${taskData.description}</textarea>`;
+  taskDescription.innerHTML = `<textarea name="edit-task-description" id="edit-task-description" rows="1" oninput="dynamicHeight(this)">${taskData.description}</textarea>`;
   taskContent.appendChild(taskDescription);
   form.appendChild(taskContent);
 
@@ -107,4 +107,7 @@ export function openEditTaskForm(taskDiv) {
   taskDiv.innerHTML = "";
 
   taskDiv.appendChild(form);
+
+  const editTaskDescription = form.querySelector("#edit-task-description");
+  editTaskDescription.style.height = editTaskDescription.scrollHeight + "px";
 }
