@@ -78,7 +78,10 @@ function createEditForm(taskDiv) {
 }
 
 function saveNewTaskData(event) {
+  // Prevent submition of the form
   event.preventDefault();
+
+  // Get the new data from the edit and pack it into an object
   const taskDiv =
     event.target.parentElement.parentElement.parentElement.parentElement;
   const newTitle = taskDiv.querySelector("#edit-task-title").value;
@@ -93,24 +96,28 @@ function saveNewTaskData(event) {
     dueDate: newDueDate,
   };
 
+  // Update the task with new details
   const taskId = taskDiv.dataset.id;
   const task = getTaskById(taskId);
   task.updateDetails(newData);
 
+  // Create a new updated task div and replace the old with the new
   const newTaskDiv = createTaskElement(task);
   const wrapper = taskDiv.parentElement;
   wrapper.innerHTML = "";
   wrapper.appendChild(newTaskDiv);
 
+  // Expand text content on edit if the task has it
   if (newTaskDiv.querySelector(".task-content")) expandTaskContent(newTaskDiv);
 }
 
 export function openEditTaskForm(taskDiv) {
+  // Create the edit form and replace the task div content with the form
   const form = createEditForm(taskDiv);
   taskDiv.innerHTML = "";
-
   taskDiv.appendChild(form);
 
+  // Make the text area fit the whole previous description in it
   const editTaskDescription = form.querySelector("#edit-task-description");
   editTaskDescription.style.height = editTaskDescription.scrollHeight + "px";
 }
