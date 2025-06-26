@@ -23,7 +23,7 @@ export default class Task {
 
   updateDetails({ title, description, dueDate, priority, group }) {
     if (title) this.title = title;
-    if (description) this.description = description;
+    this.description = description;
     if (dueDate) this.dueDate = dueDate;
     if (priority) this.priority = priority;
     if (group) this.group = group;
