@@ -1,15 +1,17 @@
 import { getTaskById } from "./storage";
 import { createTaskElement } from "./display-tasks";
 import { expandTaskContent } from "./event-handler";
+import { format } from "date-fns";
 
 function getDataFromTaskDiv(taskDiv) {
   const taskTitle = taskDiv.querySelector("h3").textContent;
   const taskDescription = taskDiv.querySelector(".task-content p")
     ? taskDiv.querySelector(".task-content p").textContent
     : "";
-  const taskDueDate = taskDiv
-    .querySelector(".task-date")
-    .textContent.replace("Due: ", "");
+  const taskDueDate = format(
+    taskDiv.querySelector(".task-date").textContent.replace("Due: ", ""),
+    "yyyy-MM-dd"
+  );
 
   return {
     title: taskTitle,
