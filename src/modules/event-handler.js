@@ -22,6 +22,11 @@ function collapseTaskContent(taskDiv) {
   }
 }
 
+function toggleEnableEditBtn(taskDiv) {
+  const editBtn = taskDiv.querySelector(".edit-task-btn");
+  editBtn.disabled = !editBtn.disabled;
+}
+
 export function toggleTaskContent(event) {
   const expandTaskBtn = event.target;
   const taskDiv = expandTaskBtn.parentElement.parentElement.parentElement;
@@ -41,6 +46,7 @@ export function changeTaskStatus(event) {
   else taskDiv.classList.add("done");
 
   task.toggleCompletion();
+  toggleEnableEditBtn(taskDiv);
 
   collapseTaskContent(taskDiv);
 }
