@@ -252,7 +252,7 @@ main {
   transition: ease-in 75ms;
 }
 
-.edit-task-btn:hover,
+.edit-task-btn:enabled:hover,
 .delete-task-btn:hover,
 .expand-task-btn:hover {
   width: 38px;
