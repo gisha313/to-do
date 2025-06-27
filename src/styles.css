@@ -91,9 +91,7 @@ nav li {
 
 nav h2 {
   font-size: 1.9rem;
-  margin: 12px 0px;
-
-  border-bottom: 1px solid var(--accent-3);
+  margin-bottom: 8px;
 }
 
 #add-task-btn {
@@ -120,6 +118,38 @@ nav h2 {
   margin-right: 8px;
   background: url(./svg/plus.svg) no-repeat;
   color: var(--primary-text);
+}
+
+.group-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+}
+
+#add-group-btn {
+  background: none;
+}
+
+#add-group-btn span {
+  width: 28px;
+  height: 28px;
+
+  display: inline-block;
+  background: url(./svg/plus.svg) no-repeat;
+  color: var(--primary-text);
+  transition: 75ms ease-in;
+}
+
+#add-group-btn span:hover {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--accent-3);
 }
 
 .nav-item {
@@ -406,6 +436,10 @@ main {
 
   outline: none;
   border: none;
+}
+
+.form-group textarea {
+  resize: none;
 }
 
 .form-multiple-group {
