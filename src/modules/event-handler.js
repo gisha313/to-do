@@ -43,12 +43,13 @@ export function changeTaskStatus(event) {
   const task = getTaskById(taskId);
 
   if (task.isCompleted) taskDiv.classList.remove("done");
-  else taskDiv.classList.add("done");
+  else {
+    taskDiv.classList.add("done");
+    collapseTaskContent(taskDiv);
+  }
 
   task.toggleCompletion();
   toggleEnableEditBtn(taskDiv);
-
-  collapseTaskContent(taskDiv);
 }
 
 export function removeTask(event) {
