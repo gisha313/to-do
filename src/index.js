@@ -1,8 +1,13 @@
 import "./styles.css";
 import TaskList from "./modules/task-list";
 import Task from "./modules/task";
-import {displayTasks} from "./modules/display-tasks";
+import { displayTasks } from "./modules/display-tasks";
 import { getTaskList } from "./modules/storage";
+import initializeNavBar from "./modules/nav-bar";
+import initializeAddTaskForm from "./modules/add-task";
+
+initializeNavBar();
+initializeAddTaskForm();
 
 const list = getTaskList();
 list.addTask(
