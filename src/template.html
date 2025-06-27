@@ -18,7 +18,9 @@
             </div>
         </div>
         <div class="nav-wrapper">
-            <h2>Tasks</h2>
+            <div class="nav-title-wrapper">
+                <h2>Tasks</h2>
+            </div>
             <ul>
                 <li>
                     <div class="nav-item">
@@ -47,21 +49,17 @@
             </ul>
         </div>
         <div class="nav-wrapper">
-            <h2>Groups</h2>
-            <ul>
-                <li>
-                    <div class="nav-item">
+            <div class="nav-title-wrapper">
+                <h2>
+                    Groups
+                </h2>
+                <div class="group-btn-container">
+                    <button id="add-group-btn" title="Add group">
                         <span></span>
-                        <a href="">Homework</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="nav-item">
-                        <span></span>
-                        <a href="">Job</a>
-                    </div>
-                </li>
-            </ul>
+                    </button>
+                </div>
+            </div>
+            <ul class="group-list"> </ul>
         </div>
         <div class="nav-wrapper">
             <div class="account-wrapper">
@@ -100,62 +98,6 @@
                     </div>
                 </form>
             </article>
-            <!-- <article class="task" data-priority="low">
-                <div class="task-header">
-                    <button class="task-status">
-                    </button>
-                    <h3>Task title 2</h3>
-                    <div class="expand-btn-container">
-                        <button class="expand-task-btn" data-expanded="true"></button>
-                    </div>
-                </div>
-                <div class="task-content">
-                    <ul>
-                        <li>
-                            <input type="checkbox" name="subtask" id="subtask-1"></input>
-                            <label for="subtask-1">Subtask 1</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="subtask" id="subtask-2"></input>
-                            <label for="subtask-2">Subtask 2</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="subtask" id="subtask-3"></input>
-                            <label for="subtask-3">Subtask 3</label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="task-footer">
-                    <span class="task-date">Due: 2025-10-01</span>
-                    <div class="task-actions">
-                        <button class="edit-task-btn">
-                        </button>
-                        <button class="delete-task-btn"></button>
-                    </div>
-                </div>
-            </article> -->
-            <!-- <article class="task" data-priority="medium">
-                <div class="task-header">
-                    <button class="task-status">
-                    </button>
-                    <h3>Task title 3</h3>
-                    <div class="expand-btn-container">
-                        <button class="expand-task-btn" data-expanded="false"></button>
-                    </div>
-                </div>
-                <div class="task-content hidden">
-                    <p class="task-description">This is a description of the task. It can be long and detailed. It can
-                        be very long and very detailed. It can also be short</p>
-                </div>
-                <div class="task-footer">
-                    <span class="task-date">Due: 2025-10-01</span>
-                    <div class="task-actions">
-                        <button class="edit-task-btn">
-                        </button>
-                        <button class="delete-task-btn"></button>
-                    </div>
-                </div>
-            </article> -->
         </div>
     </main>
     <div class="add-task-form-wrapper hidden">
@@ -164,11 +106,12 @@
             <h2>Add Task</h2>
             <div class="form-group">
                 <label for="task-title">Title</label>
-                <input type="text" id="task-title" name="task-title" required>
+                <input type="text" id="task-title" name="task-title" autocomplete="off" spellcheck="false" required>
             </div>
             <div class="form-group">
                 <label for="task-description">Description</label>
-                <textarea id="task-description" name="task-description"></textarea>
+                <textarea id="task-description" autocomplete="off" spellcheck="false" name="task-description"
+                    rows="5"></textarea>
             </div>
             <div class="form-multiple-group">
                 <div class="form-group">
@@ -198,9 +141,6 @@
             <div class="form-group">
                 <label for="task-group">Group</label>
                 <select id="task-group" name="task-group">
-                    <option value="homework">Homework</option>
-                    <option value="job">Job</option>
-                    <option value="personal">Personal</option>
                 </select>
             </div>
             <div class="form-actions">
