@@ -67,3 +67,8 @@ export function editTask(event) {
 
   openEditTaskForm(taskDiv);
 }
+
+export function openAddTaskForm(event) {
+  const addTaskFormWrapper = document.querySelector(".add-task-form-wrapper");
+  addTaskFormWrapper.classList.remove("hidden");
+}
